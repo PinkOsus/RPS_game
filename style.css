@@ -1,43 +1,97 @@
-body{
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
+/* Bold and edgy styling */
+body {
     margin: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    padding: 20px;
+    font-family: 'Bangers', cursive;
+    background-color: #121212;
+    color: #fff;
+    text-align: center;
+    background-image: radial-gradient(circle, #333 1px, transparent 1px);
+    background-size: 20px 20px;
 }
-h1{
+
+h1 {
     font-size: 3rem;
-    color: #333;
-}
-.choices{
+    color: #ff4d4d;
+    text-shadow: 3px 3px 0 #ff9999, 6px 6px 0 #333;
+    letter-spacing: 2px;
     margin-bottom: 30px;
+    animation: glitch 1s linear infinite;
 }
-.choices button{
-    font-size: 7.5rem;
-    min-width: 160px;
-    margin: 0 10px;
-    border-radius: 250px;
-    background-color: aqua;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+
+@keyframes glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+    100% { transform: translate(0); }
 }
-.choices button:hover{
-    background-color: #00bfff;
+
+.choices {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 40px;
 }
-#playerDisplay, #computerDisplay{
-    font-size: 2.5rem;
-}
-#resultDisplay{
+
+button {
+    background: none;
+    border: none;
     font-size: 5rem;
-    margin: 20px 0;
+    cursor: pointer;
+    transition: all 0.3s;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
 }
-.scoreDisplay{
+
+button:hover {
+    transform: scale(1.2) rotate(10deg);
+    filter: drop-shadow(0 0 15px #ff4d4d);
+}
+
+#playerDisplay, #computerDisplay {
+    font-size: 1.8rem;
+    margin: 10px 0;
+    color: #4dff4d;
+    text-shadow: 0 0 5px #4dff4d;
+}
+
+#resultDisplay {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 30px 0;
+    min-height: 60px;
+    color: #ffcc00;
+    text-shadow: 0 0 10px #ffcc00;
+}
+
+.scoreDisplay {
+    font-size: 1.5rem;
+    margin: 10px 0;
+    color: #4da6ff;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    margin: 0 15px;
+}
+
+#playerScoreDisplay, #computerScoreDisplay {
+    color: #ff4d4d;
     font-size: 2rem;
 }
-.greenText, #playerScoreDisplay{
-    color: green;
-}
-.redText, #computerScoreDisplay{
-    color: red;
+
+/* Responsive design */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .choices {
+        gap: 15px;
+    }
+    
+    button {
+        font-size: 3rem;
+    }
 }
