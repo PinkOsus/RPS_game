@@ -57,3 +57,15 @@ document.addEventListener('keydown', (event) => {
             break;
     }
 });
+// Add button controls
+const resetButton = document.getElementById('resetButton');
+resetButton.addEventListener('click', () => {
+    playerScore = 0;
+    computerScore = 0;
+    document.getElementById('playerScoreDisplay').textContent = '0';
+    document.getElementById('computerScoreDisplay').textContent = '0';
+    document.getElementById('playerDisplay').textContent = 'Player: ';
+    document.getElementById('computerDisplay').textContent = 'Computer: ';
+    document.getElementById('resultDisplay').textContent = '';
+    document.getElementById('resultDisplay').className = '';
+});
