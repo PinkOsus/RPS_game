@@ -1,22 +1,8 @@
-// Game variables
 let playerScore = 0;
 let computerScore = 0;
-const sassyResults = [
-    "Boom! Headshot!",
-    "Get rekt!",
-    "Eat that!",
-    "Too easy!",
-    "Git gud!",
-    "Pwned!",
-    "Sit down!",
-    "Wrecked!",
-    "Noob!",
-    "GG EZ!"
-];
+const choices = ['rock', 'paper', 'scissor'];
 
-// Game logic
 function playGame(playerChoice) {
-    const choices = ['rock', 'paper', 'scissor'];
     const computerChoice = choices[Math.floor(Math.random() * 3)];
     
     // Update displays
@@ -26,26 +12,48 @@ function playGame(playerChoice) {
     // Determine winner
     let result;
     if (playerChoice === computerChoice) {
-        result = "It's a tie!";
+        result = "It's a DRAW!";
+        document.getElementById('resultDisplay').className = 'draw';
     } else if (
         (playerChoice === 'rock' && computerChoice === 'scissor') ||
         (playerChoice === 'paper' && computerChoice === 'rock') ||
         (playerChoice === 'scissor' && computerChoice === 'paper')
     ) {
-        result = sassyResults[Math.floor(Math.random() * sassyResults.length)];
+        result = "You WIN!";
         playerScore++;
+        document.getElementById('resultDisplay').className = 'win';
     } else {
-        result = "Computer wins! LMAO!";
+        result = "You LOSE!";
         computerScore++;
+        document.getElementById('resultDisplay').className = 'lose';
     }
     
     // Update result and scores
     document.getElementById('resultDisplay').textContent = result;
     document.getElementById('playerScoreDisplay').textContent = playerScore;
     document.getElementById('computerScoreDisplay').textContent = computerScore;
-    
-    // Add animation
-    const resultElement = document.getElementById('resultDisplay');
-    resultElement.style.animation = 'none';
-    void resultElement
 }
+
+function getEmoji(choice) {
+    switch(choice) {
+        case 'rock': return '👊';
+        case 'paper': return '✋';
+        case 'scissor': return '✌️';
+        default: return '';
+    }
+}
+
+// Add keyboard controls
+document.addEventListener('keydown', (event) => {
+    switch(event.key.toLowerCase()) {
+        case 'r':
+            playGame('rock');
+            break;
+        case 'p':
+            playGame('paper');
+            break;
+        case 's':
+            playGame('scissor');
+            break;
+    }
+});
