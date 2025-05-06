@@ -104,11 +104,11 @@ button:hover {
     }
 }
 .reset-btn {
-    margin-top: 30px;
-    padding: 12px 25px;
+    margin: 30px auto 0; /* Centers horizontally with equal left/right space */
+    padding: 12px 24px; /* Balanced left/right padding */
     font-size: 1.1rem;
     font-weight: bold;
-    background: rgba(255, 0, 85, 0.2); /* Dark pink/red gradient */
+    background: rgba(255, 0, 85, 0.2);
     color: #ff0055;
     border: 2px solid #ff0055;
     border-radius: 8px;
@@ -118,6 +118,10 @@ button:hover {
     text-transform: uppercase;
     letter-spacing: 1px;
     box-shadow: 0 0 15px rgba(255, 0, 85, 0.3);
+    display: block; /* Ensures margin: auto works for centering */
+    width: fit-content; /* Shrinks width to content (no extra space) */
+    min-width: 140px; /* Prevents squeezing on small text */
+    text-align: center; /* Ensures text stays centered */
 }
 
 .reset-btn:hover {
@@ -125,9 +129,4 @@ button:hover {
     color: #fff;
     transform: translateY(-2px);
     box-shadow: 0 0 25px rgba(255, 0, 85, 0.6);
-}
-
-.reset-btn:active {
-    transform: translateY(0);
-    box-shadow: 0 0 10px rgba(255, 0, 85, 0.4);
 }
